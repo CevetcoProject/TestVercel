@@ -5,7 +5,6 @@ import {
   useGetExpensesByCategoryQuery,
 } from "@/state/api";
 import { useMemo, useState } from "react";
-import Header from "@/app/(components)/Header";
 import {
   Cell,
   Legend,
@@ -90,13 +89,6 @@ const Expenses = () => {
 
   return (
     <div>
-      {/* HEADER */}
-      <div className="mb-5">
-        <Header name="Expenses" />
-        <p className="text-sm text-gray-500">
-          A visual representation of expenses over time.
-        </p>
-      </div>
 
       {/* FILTERS */}
       <div className="flex flex-col md:flex-row justify-between gap-4">
