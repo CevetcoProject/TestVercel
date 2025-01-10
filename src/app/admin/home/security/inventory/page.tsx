@@ -1,7 +1,7 @@
 "use client";
 
 import { useGetProductsQuery } from "@/state/api";
-import Header from "@/app/(components)/Header";
+
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 
 const columns: GridColDef[] = [
@@ -46,7 +46,6 @@ const Inventory = () => {
 
   return (
     <div className="flex flex-col">
-      <Header name="Inventory" />
       <DataGrid
         rows={products}
         columns={columns}
