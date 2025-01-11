@@ -2,12 +2,13 @@ import { connect } from "@/database/mongo.config";
 import Credentials from "next-auth/providers/credentials";
 import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
-import { AuthOptions } from "next-auth";
+import { AuthOptions, ISODateString } from "next-auth";
 import { User as UserModel } from "@/models/User";
 import { JWT } from "next-auth/jwt";
 
 export type CustomSession = {
   user?: CustomUser;
+  expires: ISODateString;
 };
 
 export type CustomUser = {
@@ -32,6 +33,7 @@ export const authOptions: AuthOptions = {
           await UserModel.create({
             email: user.email,
             name: user.name,
+            role: "User", // Définit un rôle par défaut
           });
         }
         return true;
@@ -47,8 +49,8 @@ export const authOptions: AuthOptions = {
           id: user.id || "",
           name: user.name || "",
           email: user.email || "",
-          role: user.role || "", // Définit un rôle par défaut
-          avatar: user.avatar || "",
+          role: user.role || "User", // Définit un rôle par défaut
+          avatar: user.avatar || null,
         };
       }
       return token;
