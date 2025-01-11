@@ -15,7 +15,7 @@ export default async function Home() {
   // }
   return (
       <>
-      <Nav profileName={session.user.role} />
+      <Nav profileName={session?.user?.role || 'User' } />
       <ScrollUp  />
       <section
       id="home"
@@ -27,10 +27,10 @@ export default async function Home() {
           <div className="w-full px-4">
             <div className="mx-auto max-w-[800px] text-center">
               <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
-                Welcome👋, {session.user.name}!
+                Welcome👋, {session.user.name || 'Guest' }!
               </h1>
               <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
-                CEVETCO | {session.user.role}
+                CEVETCO | {session.user.role || 'User'}
               </h1>
               <p className="mb-12 text-base !leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg md:text-xl">
               This system is designed to improve workflow efficiency, 
@@ -293,7 +293,7 @@ export default async function Home() {
       </div>
       </section>
       <AboutSectionOne />
-      <RoleServices profileName={session.user.role} />
+      <RoleServices profileName={session.user.role || 'User'} />
     </>
 
   );
