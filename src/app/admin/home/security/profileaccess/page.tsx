@@ -62,13 +62,13 @@ export default function ProfileAccess() {
       if (response.status === 200) {
         setUserState({ name: "", description: "", services: [], functionalities: [] });
         setError({});
-        // Ajouter le profil créé directement à la liste des profils
         setProfiles((prevProfiles) => [
           ...prevProfiles,
-          response.data.data, // Assurez-vous que la réponse contient les données du profil créé
+          response.data.data,
         ]);
       } else {
-        setError(response?.errors || {});
+        console.error("Unexpected response", response);
+        setError({ message: "An unexpected error occurred." });
       }
     } catch (err) {
       console.error("Error during submission", err);
