@@ -15,7 +15,7 @@ export default async function Home() {
   // }
   return (
       <>
-      <Nav profileName={session.user.role} />
+      <Nav profileName='User' />
       <ScrollUp  />
       <section
       id="home"
@@ -293,7 +293,7 @@ export default async function Home() {
       </div>
       </section>
       <AboutSectionOne />
-      <RoleServices profileName={session.user.role || 'User'} />
+      <RoleServices profileName='User' />
     </>
 
   );
