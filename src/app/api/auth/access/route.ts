@@ -33,19 +33,15 @@ export async function POST(request: NextRequest) {
       { status: 200 }
     );
   } catch (error) {
-    if (error instanceof errors.E_VALIDATION_ERROR) {
-      return NextResponse.json(
-        { status: 400, errors: error.messages },
-        { status: 400 }
-      );
-    }
-
+  if (error instanceof Error) {
     console.error("Internal Server Error:", error.message);
-    return NextResponse.json(
-      { status: 500, error: "Internal server error." },
-      { status: 500 }
-    );
+  } else {
+    console.error("Unknown error occurred:", error);
   }
+  return NextResponse.json(
+    { status: 500, error: "Internal server error." },
+    { status: 500 }
+  );
 }
 
 export async function GET(request: NextRequest) {
