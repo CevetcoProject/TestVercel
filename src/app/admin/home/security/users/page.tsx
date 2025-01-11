@@ -221,11 +221,11 @@ export default function Users() {
                 </div>
 
                 <DatePicker
-                    id="language"
-                    onChange={(date) =>
-                      setUserState({ ...userState, birthday: date.toString() })
-                    }
-                  />
+                 id="language"
+                 onChange={(date: Date | null) => 
+                   date && setUserState({ ...userState, birthday: date.toString() })
+                 }
+               />
 
                 <div className="mb-4.5">
                   <label className="mb-3 block text-sm font-medium text-black dark:text-white">
