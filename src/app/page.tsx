@@ -15,7 +15,7 @@ export default async function Home() {
   // }
   return (
       <>
-      <Nav profileName='User' />
+      <Nav profileName={session.user.role} />
       <ScrollUp  />
       <section
       id="home"
