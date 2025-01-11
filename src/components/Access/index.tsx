@@ -108,9 +108,10 @@ interface UserState {
                   </div>
                   <ServiceSelect 
                       id="services"
-                      onChange={(e) =>
-                        setProfileState({ ...profileState, services: [...profileState.services, e.target.value]})
-                      }  />
+                      onChange={(value) =>
+                                  setProfileState({ ...profileState, services: [...profileState.services, value] })
+                                }
+                 />
                   <div>
                     <label className="mb-4 block text-sm font-medium text-black dark:text-white">
                       Functionalities
