@@ -30,7 +30,7 @@ export default async function Home() {
                 Welcome👋, {session.user.name || 'Guest' }!
               </h1>
               <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
-                CEVETCO | {session.user.role || 'User'}
+                CEVETCO | User
               </h1>
               <p className="mb-12 text-base !leading-relaxed text-body-color dark:text-body-color-dark sm:text-lg md:text-xl">
               This system is designed to improve workflow efficiency, 
